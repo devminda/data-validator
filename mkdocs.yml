@@ -1,0 +1,43 @@
+site_name: TODO project name
+site_description: TODO project description
+site_url: https://TODO-org.github.io/TODO-repo/
+repo_url: https://github.com/TODO-org/TODO-repo
+repo_name: TODO-org/TODO-repo
+dev_addr: 127.0.0.1:8000
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_source: true
+            docstring_style: google
+
+nav:
+  - Home: index.md
+  - API Reference:
+      - Overview: api/index.md
+  - Development: development.md
