@@ -38,6 +38,7 @@ plugins:
 
 nav:
   - Home: index.md
+  - Clients Requirements: requirements.md
   - API Reference:
       - Overview: api/index.md
   - Development: development.md

@@ -1,0 +1,6 @@
+employee_id,name,department,salary,age,date_of_birth,hire_date
+1001,Alice Johnson,Finance,72000,29,2994-07-20,2022-04-18
+1002,Bob Smith,Engineering,91000,34,1989-12-15,2021-08-02
+1003,,Finance,-5000,41,1983-05-10,2023-02-10
+1004,Emily Davis,,65000,25,1998-03-25,2030-01-01
+1002,Bob Smith,Engineering,91000,34,1989-12-15,2021-08-02
