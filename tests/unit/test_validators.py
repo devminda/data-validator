@@ -2,8 +2,10 @@ import pandas as pd
 import pytest
 
 from app.models.data_validator.validators import (
+    ColumnsValidator,
     DuplicateRowsValidator,
     FutureDOBValidator,
+    InvalidDateValidator,
     MissingValueValidator,
     NegativeSalariesValidator,
     SalaryRangeValidator,
@@ -98,3 +100,25 @@ def test_future_dob_validator_detects_future_dates(hr_df: pd.DataFrame) -> None:
     result = FutureDOBValidator(data_set="hr").validate(hr_df)
     assert result.is_valid is False
     assert len(result.invalid_data) == 1
+
+
+def test_columns_validator_passes_valid_columns(hr_df: pd.DataFrame) -> None:
+    result = ColumnsValidator(data_set="hr").validate(hr_df)
+    assert result.is_valid is True
+
+
+def test_columns_validator_detects_invalid_columns(hr_df: pd.DataFrame) -> None:
+    hr_df.columns = pd.Index(["a", "b", "c", "d", "e", "f", "g"])
+    result = ColumnsValidator(data_set="hr").validate(hr_df)
+    assert result.is_valid is False
+
+
+def test_invalid_date_validator_passes_valid_dates(hr_df: pd.DataFrame) -> None:
+    result = InvalidDateValidator(data_set="hr").validate(hr_df)
+    assert result.is_valid is True
+
+
+def test_invalid_date_validator_detects_invalid_dates(hr_df: pd.DataFrame) -> None:
+    hr_df.loc[0, "date_of_birth"] = "not-a-date"
+    result = InvalidDateValidator(data_set="hr").validate(hr_df)
+    assert result.is_valid is False
