@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://TODO-org.github.io/TODO-repo/</loc>
+         <loc>https://devminda.github.io/data-validator/</loc>
          <lastmod>2026-06-27</lastmod>
     </url>
     <url>
-         <loc>https://TODO-org.github.io/TODO-repo/development/</loc>
+         <loc>https://devminda.github.io/data-validator/development/</loc>
          <lastmod>2026-06-27</lastmod>
     </url>
     <url>
-         <loc>https://TODO-org.github.io/TODO-repo/requirements/</loc>
+         <loc>https://devminda.github.io/data-validator/requirements/</loc>
          <lastmod>2026-06-27</lastmod>
     </url>
     <url>
-         <loc>https://TODO-org.github.io/TODO-repo/api/</loc>
+         <loc>https://devminda.github.io/data-validator/api/</loc>
          <lastmod>2026-06-27</lastmod>
     </url>
 </urlset>
