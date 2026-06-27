@@ -64,8 +64,3 @@ addopts = "--cov=app --cov-report=term-missing --cov-fail-under=70"
 [tool.ruff]
 line-length = 88
 select = ["E", "F", "W", "I"]
-
-[dependency-groups]
-dev = [
-    "types-tabulate>=0.10.0.20260508",
-]

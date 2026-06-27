@@ -1503,11 +1503,6 @@ docs = [
     { name = "mkdocstrings", extra = ["python"] },
 ]
 
-[package.dev-dependencies]
-dev = [
-    { name = "types-tabulate" },
-]
-
 [package.metadata]
 requires-dist = [
     { name = "black", marker = "extra == 'dev'", specifier = ">=24.0" },
@@ -1530,9 +1525,6 @@ requires-dist = [
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.29" },
 ]
 provides-extras = ["dev", "docs"]
-
-[package.metadata.requires-dev]
-dev = [{ name = "types-tabulate", specifier = ">=0.10.0.20260508" }]
 
 [[package]]
 name = "tomli"

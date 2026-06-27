@@ -11,7 +11,7 @@ app = FastAPI(
 )
 
 
-@app.get("/health")  # type: ignore[misc]
+@app.get("/health")
 async def health() -> dict[str, str]:
     """Health check endpoint."""
     return {"status": "ok"}

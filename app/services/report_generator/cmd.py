@@ -1,14 +1,15 @@
 from typing import Mapping
 
+import pandas as pd
 from jinja2 import Template
-from tabulate import tabulate  # type: ignore[import-untyped]
+from tabulate import tabulate
 
 from app.services.report_generator.base import CMDReportGenerator
 from app.services.report_generator.templates import cmd_template
 
 
 class CMDReportGeneratorService(CMDReportGenerator):
-    def generate_report(self, data: Mapping[str, object]) -> None:
+    def generate_report(self, data: Mapping[str, pd.DataFrame]) -> None:
         print("Generating command-line report...")
 
         if not data:
@@ -16,7 +17,11 @@ class CMDReportGeneratorService(CMDReportGenerator):
             return
 
         formatted = {
-            issue: tabulate(value, headers="keys", tablefmt="psql")
+            issue: tabulate(
+                value.values.tolist(),
+                headers=list(value.columns),
+                tablefmt="psql",
+            )
             for issue, value in data.items()
         }
 
