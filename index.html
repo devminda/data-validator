@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#todo-project-name" class="md-skip">
+        <a href="#data-quality-validation-platform" class="md-skip">
           Skip to content
         </a>
       
@@ -444,6 +444,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project structure
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -613,11 +624,11 @@
   
 
 
-<h1 id="todo-project-name">TODO: Project Name</h1>
-<p>TODO: project description.</p>
+<h1 id="data-quality-validation-platform">Data Quality Validation Platform</h1>
+<p>A reusable Python application that automates dataset validation, replacing manual Excel-based inspection with a structured validation pipeline and detailed reporting.</p>
 <h2 id="quick-start">Quick Start</h2>
-<pre><code class="language-bash">git clone https://github.com/TODO-org/TODO-repo.git
-cd TODO-repo
+<pre><code class="language-bash">git clone https://github.com/devminda/data-validator.git
+cd data-validator
 pip install uv
 uv sync --extra dev --extra docs
 uv run pre-commit install
@@ -625,10 +636,31 @@ uv run pre-commit install
 <h2 id="running-locally">Running Locally</h2>
 <pre><code class="language-bash">uv run uvicorn app.main:app --reload
 </code></pre>
-<p>API is live at <code>http://localhost:8000</code>
-Interactive docs at <code>http://localhost:8000/docs</code></p>
+<p>API: <code>http://localhost:8000</code>
+Interactive docs: <code>http://localhost:8000/docs</code>
+ReDoc: <code>http://localhost:8000/redoc</code></p>
 <h2 id="running-tests">Running Tests</h2>
 <pre><code class="language-bash">uv run pytest
+</code></pre>
+<h2 id="project-structure">Project structure</h2>
+<pre><code>.
+├── app/
+│   ├── config/             # column definitions, dataset mappings, constants
+│   ├── models/
+│   │   ├── data_loader/    # base loader and CSV/JSON/Excel implementations
+│   │   └── data_validator/ # base validator, registry, and all validators
+│   ├── services/
+│   │   ├── pipelines/      # validation pipeline orchestration
+│   │   └── report_generator/ # CLI and base report generators
+│   └── main.py             # app entrypoint
+├── examples/               # example usage scripts
+├── notebooks/              # Jupyter notebooks — exploration &amp; analysis
+├── tests/
+│   ├── unit/
+│   └── integration/
+├── docs/                   # MkDocs pages
+├── Dockerfile
+└── pyproject.toml          # all tool config lives here
 </code></pre>
 
 
