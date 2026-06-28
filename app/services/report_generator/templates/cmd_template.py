@@ -1,7 +1,9 @@
 REPORT_TEMPLATE = """
-{% for issue, table in tables.items() %}
+{% for issue, details in tables.items() %}
 === {{ issue.upper() }} ===
-{{ table }}
+Records affected: {{ details.count }}
+
+{{ details.table }}
 
 {% endfor %}
 """

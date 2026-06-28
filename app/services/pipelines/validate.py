@@ -5,7 +5,6 @@ import pandas as pd
 
 from app.config.mappings import DATASET_VALIDATORS
 from app.models.data_loader.loaders import CSVLoader, ExcelLoader, JSONLoader
-from app.models.data_validator import validators  # noqa: F401
 from app.models.data_validator.registry import CLASS_REGISTRY
 from app.services.report_generator.cmd import CMDReportGeneratorService
 
@@ -49,4 +48,4 @@ def validate_data(
     print("Done running all validators.")
     # Generate a report based on the validation results
     report_generator = CMDReportGeneratorService()
-    report_generator.generate_report(validation_results)
+    report_generator.generate_report(validation_results, dataset_name)

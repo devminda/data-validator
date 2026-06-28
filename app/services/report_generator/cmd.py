@@ -9,19 +9,25 @@ from app.services.report_generator.templates import cmd_template
 
 
 class CMDReportGeneratorService(CMDReportGenerator):
-    def generate_report(self, data: Mapping[str, pd.DataFrame]) -> None:
+    def generate_report(
+        self, data: Mapping[str, pd.DataFrame], dataset_name: str
+    ) -> None:
         print("Generating command-line report...")
+        print(f"Dataset Name: {dataset_name}")
 
         if not data:
             print("No issue with data.")
             return
 
         formatted = {
-            issue: tabulate(
-                value.values.tolist(),
-                headers=list(value.columns),
-                tablefmt="psql",
-            )
+            issue: {
+                "table": tabulate(
+                    value.values.tolist(),
+                    headers=list(value.columns),
+                    tablefmt="psql",
+                ),
+                "count": len(value),
+            }
             for issue, value in data.items()
         }
 
