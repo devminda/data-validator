@@ -1,12 +1,12 @@
-# TODO: Project Name
+# Data Quality Validation Platform
 
-TODO: project description.
+A reusable Python application that automates dataset validation, replacing manual Excel-based inspection with a structured validation pipeline and detailed reporting.
 
 ## Quick Start
 
 ```bash
-git clone https://github.com/TODO-org/TODO-repo.git
-cd TODO-repo
+git clone https://github.com/devminda/data-validator.git
+cd data-validator
 pip install uv
 uv sync --extra dev --extra docs
 uv run pre-commit install
@@ -18,11 +18,35 @@ uv run pre-commit install
 uv run uvicorn app.main:app --reload
 ```
 
-API is live at `http://localhost:8000`
-Interactive docs at `http://localhost:8000/docs`
+API: `http://localhost:8000`
+Interactive docs: `http://localhost:8000/docs`
+ReDoc: `http://localhost:8000/redoc`
+
 
 ## Running Tests
 
 ```bash
 uv run pytest
+```
+
+## Project structure
+```
+.
+├── app/
+│   ├── config/             # column definitions, dataset mappings, constants
+│   ├── models/
+│   │   ├── data_loader/    # base loader and CSV/JSON/Excel implementations
+│   │   └── data_validator/ # base validator, registry, and all validators
+│   ├── services/
+│   │   ├── pipelines/      # validation pipeline orchestration
+│   │   └── report_generator/ # CLI and base report generators
+│   └── main.py             # app entrypoint
+├── examples/               # example usage scripts
+├── notebooks/              # Jupyter notebooks — exploration & analysis
+├── tests/
+│   ├── unit/
+│   └── integration/
+├── docs/                   # MkDocs pages
+├── Dockerfile
+└── pyproject.toml          # all tool config lives here
 ```

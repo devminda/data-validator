@@ -1,8 +1,8 @@
-site_name: TODO project name
-site_description: TODO project description
-site_url: https://TODO-org.github.io/TODO-repo/
-repo_url: https://github.com/TODO-org/TODO-repo
-repo_name: TODO-org/TODO-repo
+site_name: Data Quality Validation Platform
+site_description: A reusable Python application for automating dataset validation and reporting
+site_url: https://devminda.github.io/data-validator/
+repo_url: https://github.com/devminda/data-validator
+repo_name: devminda/data-validator
 dev_addr: 127.0.0.1:8000
 
 theme:
